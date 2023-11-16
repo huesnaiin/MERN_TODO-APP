@@ -33,7 +33,7 @@ const TodoItem = ({ todo, getTodos }) => {
             // Toggle the isCompleted state when the CheckCircleIcon is clicked
             const updatedTodo = { ...todo, isCompleted: !isCompleted };
             setUpdateLoader(true);
-            const response = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/${todo._id}`, updatedTodo);
+            const response = await axios.put(`https://mern-todo-app-wheat.vercel.app/api/todos/${todo._id}`, updatedTodo);
 
             // Check if the update was successful on the server
             if (response.status === 200) {
@@ -51,7 +51,7 @@ const TodoItem = ({ todo, getTodos }) => {
     const deleteTodo = async () => {
         try {
             setDeletLoader(true);
-            const response = await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/${todo._id}`);
+            const response = await axios.delete(`https://mern-todo-app-wheat.vercel.app/api/todos/${todo._id}`);
 
             if (response.status === 200) {
                 getTodos()
